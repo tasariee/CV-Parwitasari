@@ -293,6 +293,7 @@
       padding: 1rem;
     }
     .modal-backdrop.open { display: flex; }
+
     .modal {
       background: var(--paper);
       max-width: 440px;
@@ -303,6 +304,7 @@
     }
     .modal h3 { margin-bottom: 0.5rem; color: var(--primary); }
     .modal p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+
     .form-group { margin-bottom: 0.85rem; }
     .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem; }
     .form-group input {
@@ -312,6 +314,7 @@
       border-radius: 6px;
       font-size: 0.88rem;
     }
+
     .modal-actions {
       display: flex;
       justify-content: flex-end;
@@ -355,14 +358,17 @@
 
   <main class="cv-container">
     <div class="cv-content" id="cvRoot">
+
       <header>
         <div class="header-text">
           <h1 class="name" data-field="name">PARWITASARI, S.Pd.</h1>
-          <div class="headline" data-field="headline">Pendidik Ekonomi | Pemimpin Organisasi | Narasumber Pengembangan SDM</div>
+          <div class="headline" data-field="headline">Pendidikan Ekonomi | Narasumber Organisasi</div>
           <div class="contact-info">
             <span data-field="birth">Magelang, 17 April 2003</span>
             <span>•</span>
             <a href="mailto:Parwitasari04@gmail.com" data-field="email">Parwitasari04@gmail.com</a>
+            <span>•</span>
+            <a href="https://instagram.com/tasariee" target="_blank" rel="noopener" data-field="instagram">@tasariee</a>
           </div>
         </div>
         <div class="photo-frame">
@@ -373,7 +379,7 @@
       <section>
         <h2>Profil Profesional</h2>
         <p class="summary" data-field="summary">
-          Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) dengan rekam jejak kepemimpinan strategis di berbagai organisasi kemahasiswaan tingkat himpunan hingga universitas. Berpengalaman luas sebagai penggerak kaderisasi, perancang pelatihan, serta narasumber di bidang pengembangan sumber daya manusia, literasi, dan manajemen organisasi.
+          Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) dengan rekam jejak keorganisasian di berbagai organisasi kemahasiswaan tingkat himpunan hingga universitas. Berpengalaman sebagai narasumber di bidang kaderisasi, pengembangan sumber daya manusia, literasi, dan manajemen organisasi.
         </p>
       </section>
 
@@ -403,6 +409,7 @@
           "Lari dari apa yang menyakitimu akan membuatmu semakin sakit, terlukalah sampai kau sembuh."
         </div>
       </section>
+
     </div>
   </main>
 
@@ -439,10 +446,11 @@
   <script>
     const defaultData = {
       name: "PARWITASARI, S.Pd.",
-      headline: "Pendidik Ekonomi | Pemimpin Organisasi | Narasumber Pengembangan SDM",
+      headline: "Pendidikan Ekonomi | Narasumber Organisasi",
       birth: "Magelang, 17 April 2003",
       email: "Parwitasari04@gmail.com",
-      summary: "Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) dengan rekam jejak kepemimpinan strategis di berbagai organisasi kemahasiswaan tingkat himpunan hingga universitas. Berpengalaman luas sebagai penggerak kaderisasi, perancang pelatihan, serta narasumber di bidang pengembangan sumber daya manusia, literasi, dan manajemen organisasi.",
+      instagram: "@tasariee",
+      summary: "Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) dengan rekam jejak keorganisasian di berbagai organisasi kemahasiswaan tingkat himpunan hingga universitas. Berpengalaman sebagai narasumber di bidang kaderisasi, pengembangan sumber daya manusia, literasi, dan manajemen organisasi.",
       motto: "\"Lari dari apa yang menyakitimu akan membuatmu semakin sakit, terlukalah sampai kau sembuh.\"",
       education: [
         { year: "S1", items: ["Program Studi Pendidikan Ekonomi — Universitas Muhammadiyah Purworejo (UMPWR)"] },
@@ -508,8 +516,8 @@
       skills: [
         { title: "Kepemimpinan & Manajemen Organisasi", desc: "Perencanaan strategis dan koordinasi lintas organisasi." },
         { title: "Public Speaking & Pelatihan", desc: "Penyampaian materi forum diskusi, pelatihan kepemimpinan, dan pengembangan SDM." },
-        { title: "Kaderisasi & Pengembangan SDM", desc: "Perancangan kurikulum pelatihan dasar, penguatan internal, dan pendampingan kader." },
-        { title: "Riset & Literasi", desc: "Pengelolaan divisi penelitian, pengembangan keilmuan, dan bedah literatur." }
+        { title: "Kaderisasi & Pengembangan SDM", desc: "Penguatan internal dan pendampingan kader." },
+        { title: "Riset & Literasi", desc: "Pengelolaan penelitian, pengembangan keilmuan, dan bedah literatur/buku." }
       ]
     };
 
@@ -533,6 +541,7 @@
         const field = el.getAttribute('data-field');
         el.textContent = cvData[field] || '';
         if (field === 'email') el.href = 'mailto:' + (cvData[field] || '');
+        if (field === 'instagram') el.href = 'https://instagram.com/' + (cvData[field] || '').replace(/^@/, '');
       });
 
       renderTimeline('educationList', cvData.education, 'education');
@@ -587,7 +596,6 @@
     document.getElementById('cvRoot').addEventListener('input', (e) => {
       if (!isEditMode) return;
       const el = e.target;
-
       if (el.dataset.field) {
         cvData[el.dataset.field] = el.textContent.trim();
       } else if (el.dataset.list) {
@@ -600,7 +608,6 @@
 
       localStorage.setItem('cv_local_draft', JSON.stringify(cvData));
       setStatus('Menyimpan perubahan...', 'saving');
-
       clearTimeout(autoSaveTimer);
       autoSaveTimer = setTimeout(() => syncToGitHub(), 2000);
     });
@@ -663,13 +670,16 @@
       document.getElementById('ghToken').value = localStorage.getItem('gh_token') || '';
       document.getElementById('ownerModal').classList.add('open');
     }
+
     function closeOwnerModal() {
       document.getElementById('ownerModal').classList.remove('open');
     }
+
     function startLocalEdit() {
       closeOwnerModal();
       toggleEditMode(true);
     }
+
     function saveGitHubConfig() {
       localStorage.setItem('gh_user', document.getElementById('ghUser').value.trim());
       localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
