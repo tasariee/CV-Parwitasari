@@ -3,692 +3,471 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV — Parwitasari, S.Pd.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <title>CV — Parwitasari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #6B1D2F;
-      --primary-light: #FDF2F4;
-      --text-main: #1E293B;
-      --text-muted: #475569;
-      --border: #E2E8F0;
-      --bg: #F1F5F9;
-      --paper: #FFFFFF;
+      --bg: #f8f7f4;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #1e3a5f;
+      --accent-soft: #eef2f7;
+      --border: #e5e7eb;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 2rem 1rem;
+      color: var(--text);
+      line-height: 1.65;
+      padding: 2rem 1rem 5rem;
     }
 
-    /* Toolbar Atas */
-    .top-bar {
-      max-width: 880px;
-      margin: 0 auto 1rem auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .status-badge {
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      background: #E2E8F0;
-      color: var(--text-muted);
-      display: none;
-    }
-    .status-badge.active { display: inline-block; }
-    .status-badge.saving { background: #FEF3C7; color: #92400E; }
-    .status-badge.saved { background: #DCFCE7; color: #166534; }
-    .status-badge.error { background: #FEE2E2; color: #991B1B; }
-
-    .btn {
-      font-family: inherit;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.55rem 1rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--paper);
-      color: var(--text-main);
-      cursor: pointer;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .btn:hover { background: #F8FAFC; border-color: #CBD5E1; }
-    .btn-primary {
-      background: var(--primary);
-      color: #FFFFFF;
-      border-color: var(--primary);
-    }
-    .btn-primary:hover { background: #521523; }
-
-    /* Kertas CV */
-    .cv-container {
-      max-width: 880px;
+    .container {
+      max-width: 860px;
       margin: 0 auto;
-      background: var(--paper);
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
-      overflow: hidden;
-      border-top: 6px solid var(--primary);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     }
 
-    .cv-content {
-      padding: 3rem 3.5rem;
-    }
-
-    /* Header dengan Foto HD */
     header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 2rem;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 1.75rem;
-      margin-bottom: 1.75rem;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
     }
 
-    .header-text {
-      flex: 1;
-    }
-
-    .photo-frame {
+    .avatar {
       width: 120px;
-      height: 150px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 2.5px solid var(--primary);
-      box-shadow: 0 4px 12px rgba(107, 29, 47, 0.15);
-      background: var(--primary-light);
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
+      height: 120px;
+      border-radius: 50%;
       object-fit: cover;
-      /* Fokus presisi ke wajah & gestur mikrofon pada foto 111.png */
-      object-position: 50% 34%;
-      transform: scale(1.45);
-      transform-origin: 50% 36%;
-      display: block;
-      image-rendering: -webkit-optimize-contrast;
+      border: 3px solid var(--accent-soft);
+      background: var(--accent-soft);
+      flex-shrink: 0;
     }
 
-    .name {
-      font-family: 'Merriweather', Georgia, serif;
+    .header-info h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      color: var(--primary);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.35rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
     }
 
-    .headline {
+    .subtitle {
       font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-weight: 500;
+      color: var(--muted);
       margin-bottom: 0.75rem;
     }
 
-    .contact-info {
+    .contacts {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem 1rem;
+      gap: 0.75rem 1.25rem;
       font-size: 0.9rem;
-      color: var(--text-muted);
     }
 
-    .contact-info a {
-      color: var(--primary);
+    .contacts a {
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
-    .contact-info a:hover { text-decoration: underline; }
 
-    /* Sections */
+    .contacts a:hover {
+      text-decoration: underline;
+    }
+
     section {
-      margin-bottom: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
     }
 
     h2 {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--primary);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.35rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 0.4rem;
       margin-bottom: 1rem;
-      font-weight: 700;
     }
 
-    .summary {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      text-align: justify;
+    .bio {
+      font-size: 0.96rem;
+      color: #374151;
     }
 
-    /* Timeline / Grid Items */
-    .entry {
+    .skills-grid {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .skill-card {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .item {
       margin-bottom: 1rem;
     }
 
-    .entry-year {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--primary);
-      padding-top: 0.1rem;
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    .entry-details ul {
+    .item-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .item-meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .item-desc {
+      font-size: 0.92rem;
+      color: #4b5563;
+      margin-top: 0.25rem;
+    }
+
+    .year-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .year-label {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+    }
+
+    ul.speaking-list {
       list-style: none;
       padding-left: 0;
     }
 
-    .entry-details li {
+    ul.speaking-list li {
       position: relative;
-      padding-left: 1rem;
-      margin-bottom: 0.35rem;
-      font-size: 0.93rem;
+      padding-left: 1.15rem;
+      margin-bottom: 0.45rem;
+      font-size: 0.94rem;
     }
 
-    .entry-details li::before {
+    ul.speaking-list li::before {
       content: "•";
       position: absolute;
       left: 0;
-      color: var(--primary);
-      font-weight: bold;
+      color: var(--accent);
+      font-weight: 700;
     }
 
-    /* Kompetensi Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 0.85rem;
-    }
-
-    .skill-card {
-      background: var(--primary-light);
-      border-left: 3px solid var(--primary);
-      padding: 0.75rem 1rem;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.9rem;
-    }
-
-    .skill-card strong {
-      display: block;
-      color: var(--primary);
-      margin-bottom: 0.2rem;
-    }
-
-    /* Motto */
-    .motto-box {
-      background: #F8FAFC;
-      border-left: 3px solid var(--text-muted);
-      padding: 0.85rem 1.25rem;
-      font-style: italic;
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      border-radius: 0 6px 6px 0;
-    }
-
-    /* Mode Edit Styling */
-    [contenteditable="true"] {
-      outline: 1.5px dashed #94A3B8;
-      padding: 2px 4px;
+    /* Owner Edit Mode */
+    body.edit-mode [data-editable] {
+      outline: 1.5px dashed #93c5fd;
       border-radius: 4px;
-      background: #FFFBEB;
-      transition: background 0.2s;
-    }
-    [contenteditable="true"]:focus {
-      outline: 2px solid var(--primary);
-      background: #FFFFFF;
+      padding: 2px 4px;
+      background: #f0f9ff;
     }
 
-    /* Footer */
-    footer {
-      max-width: 880px;
-      margin: 1.5rem auto 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .owner-trigger {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 0.8rem;
-      text-decoration: underline;
-    }
-
-    /* Modal Login Pemilik */
-    .modal-backdrop {
+    .toolbar {
       position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      padding: 1rem;
-    }
-    .modal-backdrop.open { display: flex; }
-
-    .modal {
-      background: var(--paper);
-      max-width: 440px;
-      width: 100%;
-      padding: 1.75rem;
-      border-radius: 10px;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15);
-    }
-    .modal h3 { margin-bottom: 0.5rem; color: var(--primary); }
-    .modal p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
-
-    .form-group { margin-bottom: 0.85rem; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .form-group input {
-      width: 100%;
-      padding: 0.55rem 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.88rem;
-    }
-
-    .modal-actions {
+      bottom: 1rem;
+      right: 1rem;
       display: flex;
-      justify-content: flex-end;
       gap: 0.5rem;
-      margin-top: 1.25rem;
+      background: #111827;
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      align-items: center;
+      font-size: 0.85rem;
     }
 
-    /* Responsive & Print */
+    .toolbar button {
+      background: #374151;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .toolbar button.primary {
+      background: #2563eb;
+    }
+
+    .toolbar button:hover {
+      opacity: 0.9;
+    }
+
+    .status-text {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin: 0 0.4rem;
+    }
+
     @media (max-width: 640px) {
-      .cv-content { padding: 1.75rem 1.25rem; }
-      header {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 1.25rem;
+      .container {
+        padding: 1.5rem;
       }
-      .contact-info { justify-content: center; }
-      .entry { grid-template-columns: 1fr; gap: 0.25rem; }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contacts {
+        justify-content: center;
+      }
     }
 
     @media print {
-      body { background: #FFFFFF; padding: 0; }
-      .top-bar, footer, .modal-backdrop { display: none !important; }
-      .cv-container { box-shadow: none; border-radius: 0; border-top: 4px solid var(--primary); }
-      .cv-content { padding: 1.5rem 2rem; }
-      .photo-frame { box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      [contenteditable="true"] { outline: none; background: transparent; }
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+      .toolbar {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="top-bar">
-    <div>
-      <span id="saveStatus" class="status-badge">Mode Edit Aktif</span>
-    </div>
-    <div style="display: flex; gap: 0.5rem;">
-      <button id="exitEditBtn" class="btn" style="display:none;" onclick="toggleEditMode(false)">Selesai Edit</button>
-      <button class="btn btn-primary" onclick="window.print()">Cetak / Simpan PDF</button>
-    </div>
-  </div>
-
-  <main class="cv-container">
-    <div class="cv-content" id="cvRoot">
-
-      <header>
-        <div class="header-text">
-          <h1 class="name" data-field="name">PARWITASARI, S.Pd.</h1>
-          <div class="headline" data-field="headline">Pendidikan Ekonomi | Narasumber Organisasi</div>
-          <div class="contact-info">
-            <span data-field="birth">Magelang, 17 April 2003</span>
-            <span>•</span>
-            <a href="mailto:Parwitasari04@gmail.com" data-field="email">Parwitasari04@gmail.com</a>
-            <span>•</span>
-            <a href="https://instagram.com/tasariee" target="_blank" rel="noopener" data-field="instagram">@tasariee</a>
-          </div>
+  <main class="container" id="cv-root">
+    <header>
+      <img src="foto.jpg" alt="Foto Profil Parwitasari" class="avatar" onerror="this.style.display='none'" />
+      <div class="header-info">
+        <h1 data-editable="name">Parwitasari, S.Pd.</h1>
+        <p class="subtitle" data-editable="role">Narasumber &amp; Trainer Organisasi • Pendidik Ekonomi</p>
+        <div class="contacts">
+          <span>Purworejo, Jawa Tengah</span>
+          <span>•</span>
+          <a href="https://instagram.com/tasariee_" target="_blank" rel="noopener noreferrer" data-editable="instagram">@tasariee_</a>
         </div>
-        <div class="photo-frame">
-          <img src="111.png" alt="Foto Profil Parwitasari, S.Pd." loading="eager" decoding="async" />
-        </div>
-      </header>
+      </div>
+    </header>
 
-      <section>
-        <h2>Profil Profesional</h2>
-        <p class="summary" data-field="summary">
-          Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) dengan rekam jejak keorganisasian di berbagai organisasi kemahasiswaan tingkat himpunan hingga universitas. Berpengalaman sebagai narasumber di bidang kaderisasi, pengembangan sumber daya manusia, literasi, dan manajemen organisasi.
+    <section>
+      <h2>Profil Singkat</h2>
+      <p class="bio" data-editable="bio">
+        Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) yang aktif sebagai narasumber, trainer, dan penggerak organisasi mahasiswa. Berfokus pada pengembangan kepemimpinan, manajemen organisasi, public speaking, kaderisasi SDM, serta riset dan tinjauan literatur.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kompetensi Utama</h2>
+      <div class="skills-grid">
+        <div class="skill-card" data-editable="skill-1">Kepemimpinan &amp; Manajemen Organisasi</div>
+        <div class="skill-card" data-editable="skill-2">Public Speaking &amp; Training</div>
+        <div class="skill-card" data-editable="skill-3">Kaderisasi &amp; Pengembangan SDM</div>
+        <div class="skill-card" data-editable="skill-4">Riset &amp; Tinjauan Literatur</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pendidikan</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title" data-editable="edu-title">Sarjana Pendidikan Ekonomi (S.Pd.)</span>
+          <span class="item-meta" data-editable="edu-meta">Universitas Muhammadiyah Purworejo (UMPWR)</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pengalaman Organisasi</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title" data-editable="org-1-title">Ketua Umum — Forum Mahasiswa Beasiswa (FORMAWA) UMPWR</span>
+        </div>
+        <p class="item-desc" data-editable="org-1-desc">
+          Memimpin koordinasi program kerja, penguatan kapasitas penerima beasiswa, serta kolaborasi lintas organisasi mahasiswa di tingkat program studi hingga universitas.
         </p>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <h2>Riwayat Pendidikan</h2>
-        <div id="educationList"></div>
-      </section>
+    <section>
+      <h2>Riwayat Narasumber &amp; Pemateri</h2>
 
-      <section>
-        <h2>Pengalaman Organisasi &amp; Kepemimpinan</h2>
-        <div id="orgList"></div>
-      </section>
+      <div class="year-group">
+        <span class="year-label">2026</span>
+        <ul class="speaking-list" data-editable="speaking-2026">
+          <li><strong>Narasumber</strong> — Pemilihan Ketua dan Wakil Ketua Himpunan Mahasiswa Pendidikan Ekonomi (HIMAPNOMI)</li>
+          <li><strong>Pemateri</strong> — DAD IMM PK Ibnu Taimiyah</li>
+          <li><strong>Pemateri</strong> — Diklat dan Makrab UKM JQH Al-Bayan</li>
+          <li><strong>Pemateri</strong> — Upgrading Human Resource Training PC IMM Purworejo</li>
+          <li><strong>Pemateri</strong> — Pra Mustang UKM JQH Al-Bayan</li>
+          <li><strong>Pemateri</strong> — Latihan Administrasi Kepemimpinan dan Manajemen Organisasi (LAKMO) PK IMM Ibnu Taimiyah</li>
+          <li><strong>Pemateri</strong> — Bedah Tanfidz IMM UMPWR</li>
+        </ul>
+      </div>
 
-      <section>
-        <h2>Pengalaman Pemateri &amp; Narasumber</h2>
-        <div id="speakerList"></div>
-      </section>
-
-      <section>
-        <h2>Kompetensi Utama</h2>
-        <div class="skills-grid" id="skillsList"></div>
-      </section>
-
-      <section style="margin-bottom: 0;">
-        <h2>Prinsip Hidup</h2>
-        <div class="motto-box" data-field="motto">
-          "Lari dari apa yang menyakitimu akan membuatmu semakin sakit, terlukalah sampai kau sembuh."
-        </div>
-      </section>
-
-    </div>
+      <div class="year-group">
+        <span class="year-label">2025</span>
+        <ul class="speaking-list" data-editable="speaking-2025">
+          <li><strong>Pemateri</strong> — DAD PK IMM Buya Hamka</li>
+          <li><strong>Pemateri</strong> — Stadium General PK IMM Buya Hamka</li>
+          <li><strong>Pemateri</strong> — Al-Bayan Leadership Forum</li>
+          <li><strong>Pemateri</strong> — Sekolah Politik PK IMM Ibnu Sina</li>
+          <li><strong>Pemateri</strong> — Bedah Buku RTL IMM PK Ibnu Taimiyah</li>
+          <li><strong>Pemateri</strong> — Program Sinergi Pemuda Desa (SIPUDES) KKN UMPWR, Desa Tunggulrejo, Grabag, Purworejo</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <span>© 2026 Parwitasari, S.Pd.</span>
-    <button class="owner-trigger" onclick="openOwnerModal()">Mode Pemilik (Edit CV)</button>
-  </footer>
-
-  <!-- Modal Pengaturan Pemilik -->
-  <div class="modal-backdrop" id="ownerModal">
-    <div class="modal">
-      <h3>Akses Pemilik CV</h3>
-      <p>Masukkan kredensial GitHub Anda agar setiap perubahan otomatis tersimpan permanen ke web publik. Token hanya disimpan di browser Anda sendiri.</p>
-      <div class="form-group">
-        <label>GitHub Username</label>
-        <input type="text" id="ghUser" placeholder="contoh: parwitasari">
-      </div>
-      <div class="form-group">
-        <label>Nama Repository</label>
-        <input type="text" id="ghRepo" placeholder="contoh: cv-parwitasari">
-      </div>
-      <div class="form-group">
-        <label>GitHub Personal Access Token (Contents: Read &amp; Write)</label>
-        <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxx">
-      </div>
-      <div class="modal-actions">
-        <button class="btn" onclick="closeOwnerModal()">Batal</button>
-        <button class="btn" onclick="startLocalEdit()">Edit Lokal Saja</button>
-        <button class="btn btn-primary" onclick="saveGitHubConfig()">Aktifkan Auto-Save</button>
-      </div>
-    </div>
+  <div class="toolbar">
+    <span class="status-text" id="save-status">Mode Baca</span>
+    <button id="toggle-edit" type="button">Edit CV</button>
+    <button id="save-github" class="primary" type="button" style="display:none;">Simpan ke GitHub</button>
   </div>
 
   <script>
-    const defaultData = {
-      name: "PARWITASARI, S.Pd.",
-      headline: "Pendidikan Ekonomi | Narasumber Organisasi",
-      birth: "Magelang, 17 April 2003",
-      email: "Parwitasari04@gmail.com",
-      instagram: "@tasariee",
-      summary: "Lulusan Sarjana Pendidikan Ekonomi Universitas Muhammadiyah Purworejo (UMPWR) dengan rekam jejak keorganisasian di berbagai organisasi kemahasiswaan tingkat himpunan hingga universitas. Berpengalaman sebagai narasumber di bidang kaderisasi, pengembangan sumber daya manusia, literasi, dan manajemen organisasi.",
-      motto: "\"Lari dari apa yang menyakitimu akan membuatmu semakin sakit, terlukalah sampai kau sembuh.\"",
-      education: [
-        { year: "S1", items: ["Program Studi Pendidikan Ekonomi — Universitas Muhammadiyah Purworejo (UMPWR)"] },
-        { year: "MA", items: ["MA Darul 'Ulum Muhammadiyah Galur, Kulonprogo"] }
-      ],
-      organizations: [
-        {
-          year: "2024 – 2025",
-          items: [
-            "Ketua Umum — Forum Mahasiswa Beasiswa (FORMAWA) UMPWR",
-            "Dewan Pengawas — Himpunan Mahasiswa Pendidikan Ekonomi (HIMAPNOMI)",
-            "Ketua Bidang Internal — Koordinator Komisariat (KORKOM) IMM"
-          ]
-        },
-        {
-          year: "2023 – 2024",
-          items: [
-            "Ketua Umum — UKM Jam'iyyatul Qurra wal Huffadz (JQH) Al-Bayan",
-            "Ketua Bidang Organisasi — PK IMM Buya Hamka",
-            "Ketua Divisi Litbang — Himpunan Mahasiswa Pendidikan Ekonomi (HIMAPNOMI)"
-          ]
-        },
-        {
-          year: "2022 – 2023",
-          items: [
-            "Sekretaris Bidang RPK — PK IMM Buya Hamka",
-            "Sekretaris Divisi Litbang — Himpunan Mahasiswa Pendidikan Ekonomi (HIMAPNOMI)",
-            "Anggota Bidang Organisasi — UKM JQH Al-Bayan"
-          ]
-        },
-        {
-          year: "2021 – 2023",
-          items: [
-            "Anggota Bidang Perkaderan — Pimpinan Daerah Ikatan Pelajar Muhammadiyah (PD IPM) Kulonprogo"
-          ]
-        }
-      ],
-      speaking: [
-        {
-          year: "2026",
-          items: [
-            "Narasumber — Pemilihan Ketua Umum dan Wakil Ketua Umum HIMAPNOMI",
-            "Pemateri — Upgrading Human Resource Training, PC IMM Purworejo",
-            "Pemateri — Bedah Tanfidz, IMM UMPWR",
-            "Pemateri — Darul Arqam Dasar (DAD), PK IMM Ibnu Taimiyah",
-            "Pemateri — Latihan Administrasi Kepemimpinan dan Manajemen Organisasi (LAKMO), PK IMM Ibnu Taimiyah",
-            "Pemateri — Diklat dan Makrab, UKM JQH Al-Bayan",
-            "Pemateri — Pra Mustang, UKM JQH Al-Bayan"
-          ]
-        },
-        {
-          year: "2025",
-          items: [
-            "Pemateri — Al-Bayan Leadership Forum",
-            "Pemateri — Sekolah Politik, PK IMM Ibnu Sina",
-            "Pemateri — Stadium General, PK IMM Buya Hamka",
-            "Pemateri — Darul Arqam Dasar (DAD), PK IMM Buya Hamka",
-            "Pemateri — Bedah Buku RTL, PK IMM Ibnu Taimiyah",
-            "Pemateri — Sinergi Pemuda Desa (SIPUDES) KKN UMPWR Desa Tunggulrejo, Grabag, Purworejo"
-          ]
-        }
-      ],
-      skills: [
-        { title: "Kepemimpinan & Manajemen Organisasi", desc: "Perencanaan strategis dan koordinasi lintas organisasi." },
-        { title: "Public Speaking & Pelatihan", desc: "Penyampaian materi forum diskusi, pelatihan kepemimpinan, dan pengembangan SDM." },
-        { title: "Kaderisasi & Pengembangan SDM", desc: "Penguatan internal dan pendampingan kader." },
-        { title: "Riset & Literasi", desc: "Pengelolaan penelitian, pengembangan keilmuan, dan bedah literatur/buku." }
-      ]
-    };
+    const STORAGE_KEY = 'cv_parwitasari_autosave_v1';
+    const editables = document.querySelectorAll('[data-editable]');
+    const toggleBtn = document.getElementById('toggle-edit');
+    const saveGhBtn = document.getElementById('save-github');
+    const statusText = document.getElementById('save-status');
 
-    let cvData = structuredClone(defaultData);
     let isEditMode = false;
-    let autoSaveTimer = null;
 
-    async function loadCV() {
+    // Muat perubahan lokal jika ada
+    function loadLocal() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
       try {
-        const res = await fetch('./cv-data.json?t=' + Date.now());
-        if (res.ok) cvData = await res.json();
+        const data = JSON.parse(saved);
+        editables.forEach(el => {
+          const key = el.getAttribute('data-editable');
+          if (data[key] !== undefined) {
+            el.innerHTML = data[key];
+          }
+        });
       } catch (e) {
-        const localDraft = localStorage.getItem('cv_local_draft');
-        if (localDraft) cvData = JSON.parse(localDraft);
+        console.error('Gagal memuat autosave:', e);
       }
-      renderCV();
     }
 
-    function renderCV() {
-      document.querySelectorAll('[data-field]').forEach(el => {
-        const field = el.getAttribute('data-field');
-        el.textContent = cvData[field] || '';
-        if (field === 'email') el.href = 'mailto:' + (cvData[field] || '');
-        if (field === 'instagram') el.href = 'https://instagram.com/' + (cvData[field] || '').replace(/^@/, '');
+    // Auto-save ke localStorage saat mengetik
+    function saveLocal() {
+      const data = {};
+      editables.forEach(el => {
+        data[el.getAttribute('data-editable')] = el.innerHTML;
       });
-
-      renderTimeline('educationList', cvData.education, 'education');
-      renderTimeline('orgList', cvData.organizations, 'organizations');
-      renderTimeline('speakerList', cvData.speaking, 'speaking');
-      renderSkills();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      statusText.textContent = 'Tersimpan lokal';
     }
 
-    function renderTimeline(containerId, list, key) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
-      list.forEach((entry, idx) => {
-        const div = document.createElement('div');
-        div.className = 'entry';
-        div.innerHTML = `
-          <div class="entry-year" data-list="${key}" data-idx="${idx}" data-prop="year">${entry.year}</div>
-          <div class="entry-details">
-            <ul>
-              ${entry.items.map((item, i) => `<li data-list="${key}" data-idx="${idx}" data-item="${i}">${item}</li>`).join('')}
-            </ul>
-          </div>
-        `;
-        container.appendChild(div);
+    editables.forEach(el => {
+      el.addEventListener('input', () => {
+        if (isEditMode) saveLocal();
       });
-    }
-
-    function renderSkills() {
-      const container = document.getElementById('skillsList');
-      container.innerHTML = '';
-      cvData.skills.forEach((skill, idx) => {
-        const div = document.createElement('div');
-        div.className = 'skill-card';
-        div.innerHTML = `
-          <strong data-skill="${idx}" data-prop="title">${skill.title}</strong>
-          <span data-skill="${idx}" data-prop="desc">${skill.desc}</span>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function toggleEditMode(enable) {
-      isEditMode = enable;
-      document.querySelectorAll('[data-field], [data-list], [data-skill]').forEach(node => {
-        node.contentEditable = enable ? "true" : "false";
-      });
-      document.getElementById('exitEditBtn').style.display = enable ? 'inline-flex' : 'none';
-      const badge = document.getElementById('saveStatus');
-      badge.className = enable ? 'status-badge active' : 'status-badge';
-      badge.textContent = enable ? 'Mode Edit Aktif (Auto-Save)' : '';
-    }
-
-    document.getElementById('cvRoot').addEventListener('input', (e) => {
-      if (!isEditMode) return;
-      const el = e.target;
-      if (el.dataset.field) {
-        cvData[el.dataset.field] = el.textContent.trim();
-      } else if (el.dataset.list) {
-        const { list, idx, prop, item } = el.dataset;
-        if (prop === 'year') cvData[list][idx].year = el.textContent.trim();
-        else cvData[list][idx].items[item] = el.textContent.trim();
-      } else if (el.dataset.skill !== undefined) {
-        cvData.skills[el.dataset.skill][el.dataset.prop] = el.textContent.trim();
-      }
-
-      localStorage.setItem('cv_local_draft', JSON.stringify(cvData));
-      setStatus('Menyimpan perubahan...', 'saving');
-      clearTimeout(autoSaveTimer);
-      autoSaveTimer = setTimeout(() => syncToGitHub(), 2000);
     });
 
-    function setStatus(text, type) {
-      const badge = document.getElementById('saveStatus');
-      badge.textContent = text;
-      badge.className = `status-badge active ${type}`;
-    }
+    toggleBtn.addEventListener('click', () => {
+      isEditMode = !isEditMode;
+      document.body.classList.toggle('edit-mode', isEditMode);
+      editables.forEach(el => el.setAttribute('contenteditable', isEditMode));
+      toggleBtn.textContent = isEditMode ? 'Selesai Edit' : 'Edit CV';
+      saveGhBtn.style.display = isEditMode ? 'inline-block' : 'none';
+      statusText.textContent = isEditMode ? 'Mode Edit Aktif' : 'Mode Baca';
+    });
 
-    async function syncToGitHub() {
-      const user = localStorage.getItem('gh_user');
-      const repo = localStorage.getItem('gh_repo');
-      const token = localStorage.getItem('gh_token');
+    // Simpan langsung ke GitHub repository (index.html)
+    saveGhBtn.addEventListener('click', async () => {
+      const owner = prompt('Username GitHub Anda:', localStorage.getItem('gh_owner') || '');
+      if (!owner) return;
+      const repo = prompt('Nama Repositori GitHub:', localStorage.getItem('gh_repo') || '');
+      if (!repo) return;
+      const token = prompt('GitHub Personal Access Token (PAT):', localStorage.getItem('gh_token') || '');
+      if (!token) return;
 
-      if (!user || !repo || !token) {
-        setStatus('Tersimpan di browser (Mode Lokal)', 'saved');
-        return;
-      }
+      localStorage.setItem('gh_owner', owner);
+      localStorage.setItem('gh_repo', repo);
+      localStorage.setItem('gh_token', token);
 
-      const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/cv-data.json`;
+      // Matikan atribut edit sebelum mengambil HTML bersih
+      editables.forEach(el => el.removeAttribute('contenteditable'));
+      document.body.classList.remove('edit-mode');
+      const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      editables.forEach(el => el.setAttribute('contenteditable', 'true'));
+      document.body.classList.add('edit-mode');
+
+      statusText.textContent = 'Menyimpan ke GitHub...';
+
       try {
-        let sha = null;
+        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/index.html`;
         const getRes = await fetch(apiUrl, {
-          headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }
+          headers: { Authorization: `token ${token}` }
         });
-        if (getRes.ok) {
-          const fileInfo = await getRes.json();
-          sha = fileInfo.sha;
-        }
+        const fileData = getRes.ok ? await getRes.json() : {};
 
-        const contentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(cvData, null, 2))));
+        const contentBase64 = btoa(unescape(encodeURIComponent(fullHtml)));
         const putRes = await fetch(apiUrl, {
           method: 'PUT',
           headers: {
-            Authorization: `Bearer ${token}`,
-            Accept: 'application/vnd.github+json',
+            Authorization: `token ${token}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            message: 'Auto-update CV via Web Editor',
+            message: 'Update CV via owner edit mode',
             content: contentBase64,
-            ...(sha ? { sha } : {})
+            sha: fileData.sha
           })
         });
 
         if (putRes.ok) {
-          setStatus('Otomatis tersimpan ke Web Publik ✓', 'saved');
+          statusText.textContent = 'Berhasil disimpan ke GitHub!';
         } else {
-          setStatus('Gagal simpan ke GitHub (cek token)', 'error');
+          const err = await putRes.json();
+          statusText.textContent = 'Gagal: ' + (err.message || putRes.status);
         }
       } catch (err) {
-        setStatus('Koneksi terputus (tersimpan lokal)', 'error');
+        statusText.textContent = 'Error koneksi GitHub';
+        console.error(err);
       }
-    }
+    });
 
-    function openOwnerModal() {
-      document.getElementById('ghUser').value = localStorage.getItem('gh_user') || '';
-      document.getElementById('ghRepo').value = localStorage.getItem('gh_repo') || '';
-      document.getElementById('ghToken').value = localStorage.getItem('gh_token') || '';
-      document.getElementById('ownerModal').classList.add('open');
-    }
-
-    function closeOwnerModal() {
-      document.getElementById('ownerModal').classList.remove('open');
-    }
-
-    function startLocalEdit() {
-      closeOwnerModal();
-      toggleEditMode(true);
-    }
-
-    function saveGitHubConfig() {
-      localStorage.setItem('gh_user', document.getElementById('ghUser').value.trim());
-      localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
-      localStorage.setItem('gh_token', document.getElementById('ghToken').value.trim());
-      closeOwnerModal();
-      toggleEditMode(true);
-    }
-
-    loadCV();
+    loadLocal();
   </script>
 </body>
 </html>
